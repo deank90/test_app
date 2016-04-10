@@ -95,7 +95,7 @@ public class testappDB {
 
     public List<County> loadCounties(int cityId){
         List<County> list = new ArrayList<County>();
-        Cursor cursor = db.query("County", null,, "city_id = ?",
+        Cursor cursor = db.query("County", null,"city_id = ?",
                 new String[]{String.valueOf(cityId)}, null,null,null);
         if (cursor.moveToFirst()){
             do {
