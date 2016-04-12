@@ -10,6 +10,14 @@ import java.net.URL;
  * Created by Administrator on 2016/4/10.
  */
 public class HttpUtil {
+    public static final String UTF8_BOM = "\uFEFF";
+
+    private static String removeUTF8BOM(String s){
+        if(s.startsWith(UTF8_BOM)){
+            s = s.substring(1);
+        }
+        return s;
+    }
 
     public static void sendHttpRequest(final String address,
             final HttpCallbackListener listener){
@@ -29,8 +37,9 @@ public class HttpUtil {
                     while ((line = reader.readLine()) != null){
                         response.append(line);
                     }
+
                     if(listener != null){
-                        listener.onFinish(response.toString());
+                        listener.onFinish(removeUTF8BOM(response.toString()));
                     }
                 }catch (Exception e){
                     if (listener != null){
