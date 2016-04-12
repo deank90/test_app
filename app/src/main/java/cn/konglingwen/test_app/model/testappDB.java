@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.konglingwen.test_app.db.testappOpenHelper;
+import cn.konglingwen.test_app.db.TestappOpenHelper;
 
 /**
  * Created by Administrator on 2016/4/10.
@@ -20,7 +20,7 @@ public class TestappDB {
     private SQLiteDatabase db;
 
     private TestappDB(Context context){
-        testappOpenHelper dbHelper = new testappOpenHelper(context, DB_NAME, null, VERSION);
+        TestappOpenHelper dbHelper = new TestappOpenHelper(context, DB_NAME, null, VERSION);
         db = dbHelper.getWritableDatabase();
     }
 

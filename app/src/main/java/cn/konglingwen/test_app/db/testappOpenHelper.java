@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 /**
  * Created by Administrator on 2016/4/10.
  */
-public class testappOpenHelper extends SQLiteOpenHelper {
+public class TestappOpenHelper extends SQLiteOpenHelper {
 
     public static final String CREATE_PROVINCE = "create table Province (" +
             "id integer primary key autoincrement, " +
@@ -27,7 +27,7 @@ public class testappOpenHelper extends SQLiteOpenHelper {
             "county_code text, " +
             "city_id integer)";
 
-    public testappOpenHelper(Context context, String name, SQLiteDatabase.CursorFactory
+    public TestappOpenHelper(Context context, String name, SQLiteDatabase.CursorFactory
             factory, int version){
         super(context, name, factory, version);
     }
