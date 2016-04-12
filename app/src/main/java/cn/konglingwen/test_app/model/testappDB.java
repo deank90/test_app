@@ -13,20 +13,20 @@ import cn.konglingwen.test_app.db.testappOpenHelper;
 /**
  * Created by Administrator on 2016/4/10.
  */
-public class testappDB {
+public class TestappDB {
     public static final String DB_NAME = "test_app";
     public static int VERSION = 1;
-    private static testappDB testappDB;
+    private static TestappDB testappDB;
     private SQLiteDatabase db;
 
-    private testappDB(Context context){
+    private TestappDB(Context context){
         testappOpenHelper dbHelper = new testappOpenHelper(context, DB_NAME, null, VERSION);
         db = dbHelper.getWritableDatabase();
     }
 
-    public synchronized static testappDB getInstance(Context context){
+    public synchronized static TestappDB getInstance(Context context){
         if(testappDB == null){
-            testappDB = new testappDB(context);
+            testappDB = new TestappDB(context);
         }
         return testappDB;
     }
